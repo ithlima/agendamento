@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbers</title>
+    <link rel="stylesheet" href="tela1.css">
+</head>
+
+<body>
+    <div class="titulo">
+        <div class="nome">(Nome da barbearia)</div>
+    </div>
+
+    <form action="../control/controller.php" method="post">
+    <div class="area">
+        <div class="titulo-form">Agendar Horário</div>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" required>
+        <label for="dia">Dia</label>
+        <input type="number" name="dia" id="dia" required>
+        <label for="mes">Mês</label>
+        <input type="number" name="mes" id="mes" required>
+        <label for="time">Horário</label>
+        <input type="text" name="horario" id="time" onkeypress="valida_horas(this)" maxlength="5">
+        <input type="submit" value="Marcar horário">
+        </div>
+    </form>
+    <script>
+        function valida_horas(edit) {
+
+            if (event.keyCode < 48 || event.keyCode > 57) {
+
+                event.returnValue = false;
+
+            }
+
+            if (edit.value.length == 2) {
+
+                edit.value += ":";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
